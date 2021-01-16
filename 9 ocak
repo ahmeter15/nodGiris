@@ -1,0 +1,73 @@
+9 Ocak 2021 - Cumartesi
+Kitap Projesi - 6. Ders
+***** Veritabanına bağlanıp içerisindeki verileri alıp daha sonra bir fonksiyon çağırmak istiyoruz.
+	Örnek; veritabanından kullanıcı isim ve şifreyi alıp daha sonra onu ekrana yazdırmak istiyorum.
+	// veritabanindaki kullanıcıAdı hamza olsun.
+	var kullaniciAdi = "";
+	connection.query("SELECT * from kullanici", function(err, results, fields){
+		kullaniciAdi = results.kullanici;
+	});
+	console.log(kullanicAdi);  // ""
+------------------------------------- CALLBACK ÖRNEĞİ --------------------------------
+function isim(callback){
+    setTimeout( function(){ 
+        console.log("hamza");
+        callback();
+    }, 1000);
+}
+function dil(){
+    console.log("javascript");
+}
+isim(dil);
+------------------------------------ CALLBACK ÖRNEĞİ ---------------------------------
+function sonuclariAl(callback){
+	var sayi = 20;
+	callback(sayi);
+}
+sonuclariAl(function(sayi){
+	sayi -> 20 
+});
+kitapismi = deneme
+yazar     = Ahmet
+
+
+
+---> To Do List
+Backend ile geliştirin ve yapılacakları artık veritabanına ekleyin..14 Ocak 2021 - Perşembe
+MongoDB 1. Ders
+SQL - NoSQL 
+NoSQL Nedir ? : SQL komutlarının kullanılmadığı ve verileri döküman biçiminde saklayan veritabanı çeşididir.
+table    	-    collection
+row(satır)  -    document(döküman)
+column   	-    field
+sql örneği:
+	id    baslik 		aciklama 			kategori
+	1	  Hakkımda		Burası açıklama     Duyuru
+	2 	  Makale		Açıklaması			Duyuru
+nosql (json)
+	döküman(id : 1, baslik : hakkımda, aciklama : burası açıklama, kategori: duyuru)
+	döküman(id : 2, baslik : makala, aciklama : burası açıklama, kategori: duyuru)
+MongoDB
+To Do List, MongoDB ile..
+MongoDB'de aynı Mysql gibi bilgisayara(localhost'a) kurulup kullanılabiliyor.
+MongoDB'yi SQL veritabanlarından ayıran en önemli fark HIZLI OLMASI...
+Çok sayıda veriniz varsa bu durumda NoSQL kullanmanız önerilir.
+------------------------------------ TO DO LIST ------------------------------
+npm init
+npm install express
+npm install ejs
+npm install body-parser
+npm install mongoose      --> mongoDb yi projede kullanabilmek için ihtiyaç duyduğumuz paket.
+var yapilacakListesi = new Schema(
+  {
+    gorev : String,
+    tarih : Date
+  }
+);
+var Gorev = mongoose.model("Gorev", yapilacakListesi);
+* Her bir döküman için farklı bir tipte model oluşturabiliriz.
+----------------------------------- MONGO DB KOMUTLARI -----------------------------
+gorev1.save()  -> oluşturduğumuz dökümanı veritabanına kaydeder.
+Gorev.find({}) -> veritabanındaki döküman tipi "Gorev" olan tüm kayıtları getirir.
+Gorev.find({_id : "1234", isim: "Hamza"}) -> döküman tipi "Gorev" olan ve içerisindeki fieldlarının değeri _id : 1234, isim : "Hamza" olan tüm kayıtları getirir.
+	SELECT * FROM kullanicilar WHERE id = 1234 AND isim  = "Hamza"

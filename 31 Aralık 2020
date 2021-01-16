@@ -1,0 +1,14 @@
+31 Aralık 2020
+Bir sayfaya post ile giriş izni verilirken, get ile izin verilmezse bu hangi manaya gelir ?
+	=> o sayfaya her isteyen gidemez demek. o sayfaya gitmek için, bir yerden post yöntemi ile veri göndermek gerekiyor..
+body-parser : post ile gelen verileri okuyabiliyoruz. bunu da index.js dosyasında tanıtmamız lazım.
+post ile gelen verileri nasıl okuyabiliriz ?
+	ilk önce dosyamıza "body-parser"i require yaptığımızdan emin olalım.
+	"req.body" bölümünde post ile gelen verileri görebiliriz.
+	req.body = {isim : "hamza" , sirket : "techproed" , memleket : "adana"};
+	req.body.isim     = hamza
+	req.body.sirket	  = techproed	
+	req.body.memleket = adana
+ejs : embedded javascript - dinamik sayfalar oluşturabileceğiz. bu dosyanın içerisinde hem html kodları hem de javascript kodları çalıştırabileceğiz.
+index.html gibi dosya değil, index.ejs gibi dosyalar oluşturacağız.
+***** ejs dosyaları hem html hem de javascript çalıştırabiliyor.

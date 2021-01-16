@@ -1,0 +1,15 @@
+4 Ocak 2021 - Pazartesi
+Kitap Sitesi Projesi 3. Gün
+form verilerini method="post" şeklinde gönderirseniz, arkaplandan gönderir.
+form verilerini method="get" şeklinde gönderirseniz, verileri o input'un name ya da id değerini url'e yazarak gönderir.
+<form action="/arama" >
+  <input name="kitap">  // sefiller
+  <input name="yazar">  // hugo
+  <button type="submit">Arama</button>
+</form>
+siteismi.com/arama?kitap=sefiller&yazar=hugo
+Bunlardan hangisi daha güvenli ? : POST
+\"güçlü\" -> eğer bir string içerisinde tek tırnak ya da çift tırnak ifadelerini es geçmek(ignore) istiyorsanız, yani onlar ifadenin içerisinde olsun istiyorsanız, "(çift tırnak) ya da '(tek tırnak)tan önce ters slash(\) ekleriz.
+<input required : eğer bir input'a required özelliği kazandırırsanız, o kutunun içerisine veri eklenmesi zorunlu anlamı çıkar ve form o kutuya veri eklenmeden gönderme işlemine izin vermez.
+res.redirect("/kitapekle");  :  redirect yardımıyla, kullanıcıyı istediğimiz sayfaya yönlendirebiliyoruz.
+post ile genellikle dosya yükleme ve giriş işlemleri gerçekleşir. daha doğrusu form ile yapılan hemen hemen tüm işlemler post ile yapılır.

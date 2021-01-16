@@ -1,0 +1,34 @@
+8 Ocak 2021 - Cuma
+SELECT *  FROM bilgiler.kitaplar 
+	LEFT JOIN bilgiler.kategoriler 
+	ON bilgiler.kategoriler.kategori_link = 'roman' 
+WHERE bilgiler.kategoriler.kategori_ismi = bilgiler.kitaplar.kategori
+------------------------------------------------------------------------
+app.get("/" , function(req , res){
+    connection.query("SELECT * from kitaplar  ;  SELECT * from kategoriler" , function(
+      // birinci sonuçta -> kitaplar        > results[0]
+      // ikinci sonuçta  -> kategoriler     > results[1]
+      var veriTabaniKitaplar    = results[0];
+      var veriTabaniKategoriler = results[1];
+    });
+});
+***** veritabanına bağlanırken, birden fazla sorgu çalıştırabiliyoruz. çalıştırdığımız birden fazla sorgu sonucunda birden fazla sonuç gelecek. örneğin;
+	SELECT * from kitaplar  	--> veritabanındaki tüm kitaplar
+	SELECT * from kategoriler   --> veritabanındaki tüm kategoriler
+	ilk sorgunun cevabını : results[0]
+	ikinci sorgunun cevabı: results[1]
+-------------------------------------------------------------------
+***** arama sayfasının header bölümünde kategoriler arrayi olmadığı için hata alıyoruz. bu hatayı çözmek için arama.ejs'yi render ederken "kategoriler" arrayi göndermemiz gerekiyor. Peki kategoriler arrayini nereden alabiliriz ?
+app.get("/arama" , function(req, res){
+   	var kelime = req.query.kitap;
+    var sql = "SELECT * from kitaplar WHERE kitapismi LIKE '%" + kelime + "%'";
+    connection.query(sql,  function(err, results, fields){
+      res.render("arama" , { kitaplar : results });
+    });
+});
+----------------------------------------------------------------------
+results = [
+  [], --- birinci sorguya ait
+  [], --- ikinci sorguya ait
+  []  --- ucuncu soruya ait
+]

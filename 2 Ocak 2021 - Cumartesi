@@ -1,0 +1,24 @@
+2 Ocak 2021 - Cumartesi
+Kitap Sitesi Projesi 2. Gün
+include("header") -> views klasörünün içindeki ejs dosyasını istediğimiz ejs dosyasına dahil edebiliyoruz.
+<%- include("header") -%>
+<% for(var i = 0 ; i < array.length ; i++) {  %>
+	console.log(array[i].isim);
+<% } %>
+
+
+Ödev: 
+
+1. Yeni bir proje oluştur.
+2. npm kur
+3. Paketler yükle: express, ejs, nodemon
+index.js oluştur. ve render yap.
+
+Kişisel web sayfamız
+
+Ana sayfa.ejs : Hakkımda ve iletişim sayfasına link veredceğiz
+
+hakkımda.ejs : Bizimle ilgili bilgiler.
+
+İletişim.ejs : hakkımda ve iletişim sayfasındaki bilgiler index.js dosyasından render yapılarak gönderilecek.
+

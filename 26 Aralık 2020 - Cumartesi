@@ -1,0 +1,34 @@
+26 Aralık 2020 - Cumartesi
+git log : git local repositorysindeki kayıtları gösteriyor.
+git fetch   : github'tan verileri localimize alır(staging area'ya alır.)
+git merge   : verileri karşılaştırıyor.kodlarda çakışma(conflict) varsa bunu söylüyor.
+git pull    : projeyi güncel haliyle değiştiriyor. (conflict'leri söylüyor.)
+***** git merge yapmak için, localde commit oluşturup github'a göndermememiz gerekiyor.
+	  conflict(çakışma)
+1. durum :  GITHUB'taki COMMIT sayısı LOCAL'den fazlaysa ve biz bu durumda localden GÜNCELLEME YAPMADAN(yani github'taki son versiyonu local'e almadan) projemize github'a göndermek istersek ne olur ?
+	Github 		 : 10 version
+	Local  		 : 9 version
+	Sonuç  		 : git izin VERMEZ ! önce güncelle der.(fetch first) 
+	Ne yapılmalı : github.com'dan projeyi güncellememiz lazım, daha sonra gönderebilrz.
+2. durum : GITHUB'daki COMMIT sayısı LOCAL'den fazlaysa ve biz bu durumdayken LOCAL'de yeni kodlar eklediysek. Eğer github.com'dan projeni yeni sürümü bilgisayarıma alırsak yazdığımız kodlar silinir mi ?
+	Github       : 11 version
+	Local        : 10 version
+	Senaryolar   : eğer siz commit oluşturmadıysanız, KODLARINIZ SİLİNİR. 
+				   eğer siz commit oluşturursanız, KODLARINIZ SİLİNMEZ.
+3. durum : GITHUB'daki COMMIT sayısı LOCAL'den daha azsa ve biz bu durumdayken GITHUB'tan projeyi güncellemek istersek ne olur ?
+	Github 		 : 11 version
+	Local        : 15 version
+	Sonuç        : sen zaten github.com'dan 11. versionu almışsın herşey zaten güncel. herhangi bir değişiklik yapmıyor.
+4. durum : Ben 10 tane versiyon oluşturdum, takım arkadaşım 5 tane version oluşturdu. Ben github.com'daki projenin son halini bilgisayarıma alırsam, kaç tane versionum olur ?
+	Cevap 		 : 15
+--------------------------------- YENİ BİR PROJE OLUŞTURMA ----------------------------
+git init 		 : local repository oluştururuz. sadece 1 kere..
+git add . 		 : tüm dosyaları staging area'ya ekliyoruz.
+git commit -m    : version oluşturuyoruz.
+git remote add origin https://github.com/hamzatechproed/WebDevelopment.git 
+				 github linkini projeye tanıtıyoruz, sadece 1 kere..
+git push -u origin master 
+				 master branchini kullanarak gönderim yapıyoruz, sadece 1 kere..
+***** .gitignore dosyası : bu dosyanın içerisine eklediğiniz dosya ve klasörler github.com'a gönderilmez.
+***** localimizde bir sürü çalışma yaptık ve çok sayıda commit'imiz var. bir noktadan işlerin karştığını gördük ve dedik ki bu işin altından kalkamayacağım o yüzden tüm ayarları resetleyeyim yani github.com'da ne varsa onu projeye alayım ve benim yaptığımız tüm değişiklikler silinsin.
+git reset --hard origin/master

@@ -1,0 +1,17 @@
+30 Aralık 2020 - Çarşamba
+Express.JS : Node.JS ile çalışan bu modul (paket) yardımıyla sunucu çatısı oluşturabiliyoruz ve gelen isteklere cevap verebiliriz.
+	const express = require('express');
+	const app = express();
+__dirname : çalıştığımız dosyanın bulunduğu klasör adresini getirir.
+__dirname + "/index.html" -> C:\Users\Desktop\WebDevelopment\NodeGiris\index.html	
+app.get('/' , function(req, res){
+	// kullanıcıya burada cevap veriyoruz.
+});
+"/" 	   	   -> anasayfayı temsil ediyordu.
+"iletisim" 	   -> /iletisim sayfasini temsil ediyordu.
+"*"        	   -> tüm sayfaları temsil ediyordu.
+res.send ()    -> yazı şeklinde cevap verebiliyoruz.
+res.sendFile() -> dosya şeklinde cevap verebiliyoruz.
+app.listen(8000); -> applikasyonu dinlemesi gereken portu(8000) bildiriyorduk.
+nodemon index.js  -> eğer bu şekilde çalıştırırsak, dosyamızdaki değişiklerden sonra, sunucu tekrar başlatılıyordu.
+function(req , res)  =  (req, res) =>

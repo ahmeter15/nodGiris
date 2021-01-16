@@ -1,0 +1,13 @@
+----- ÇARŞAMBAYA KADAR
+Kişisel websayfası
+Anasayfa     > hakkımda ve iletisim sayfasına link vereceğiz.
+Hakkımda     > bizimle alakalı bilgiler
+İletişim     > iletişim bilgilerimiz
+anasayfa.ejs
+hakkimda.ejs
+iletisim.ejs
+hakkimda ve iletisim sayfasında bilgiler index.js dosyasından render yapılırken gönderilecek.
+1- yeni bir proje oluşturulmalı.
+2- npm kurulmalı
+3- ihtiyaç duyulan js paketleri(express, ejs) yüklenmeli.
+4- index.js oluşturulmalı ve render işlemleri yapılmalı.

@@ -1,0 +1,47 @@
+
+30 Aralik
+
+const fs = require('fs');
+const superheroes = require('superheroes');
+const express = require('express')
+const app = express()
+
+app.listen(8000);
+
+fs.copyFileSync("dosya1.txt", "dosya2.txt");
+var rastgeleKahraman = superheroes.random();
+console.log(rastgeleKahraman);
+
+
+npm install expres // 
+
+index,js içine ;
+
+const express = require('express')
+const app = express()
+
+// / dediğimiz şey anasayfayı temsil eder.
+app.get("/" , function(req, res){ // req veya res de yazılabilir.
+  res.send("Hoş geldiniz!");
+}
+)
+
+
+app.listen(8000);
+
+
+npm install nodemon // bu modül kurulumu ile sunucunu her değişiklikten sonra sayfayı yenilenmesini sağlayacak
+npm install -g nodemon // yukarıdaki linkten kurmazsa bu kodla kurulabilir.
+
+
+Sunucuda anasayfayı bir html dosyasına yönlendirme
+app.get("/" , function(req, res){ // req veya res de yazılabilir.
+  res.sendFile(__dirname + "/index.html");
+}
+)
+
+-- Hatalı sayfalara gitrdiği zaman kullanıcı şu şekilde yönlendirilebilir.
+app.get("*", function(){
+  res.send("hata! Yanlış sayfadasınız. Lütfen tarayıcı ayarlarını düzenleyiniz.")
+})
+

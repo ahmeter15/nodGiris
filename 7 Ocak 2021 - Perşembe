@@ -1,0 +1,38 @@
+7 Ocak 2021 - Perşembe
+Kitap Sitesi Projesi 5. Gün
+connection.query("SELECT * from kitaplar" , function(err, results, fields){
+});
+sonuclar = [
+	        {id : 10, isim: "Sefiller"},
+	        {id : 11, isim: "Suç ve Ceza"},
+	        {id : 12, isim: "Tutunamayanlar"}
+	       ]
+	      sonuclar[0] -> {id : 10, isim: "Sefiller"}
+	      sonuclar[1] -> {id : 11, isim: "Suç ve Ceza"}
+	      sonuclar[2] -> {id : 12, isim: "Tutunamayanlar"}
+	      sonuclar[1].isim -> "Suç ve Ceza"
+	      sonuclar[2].isim -> "Tutunamayanlar"
+SELECT * from
+INSERT INTO
+UPDATE
+DELETE
+WHERE kitapismi LIKE "%suç%"  ---> İçerisinde "suç" geçen tüm kitaplar.
+WHERE kitapismi = "suç"       ---> Kitapismi "suç" olan tüm kitaplar.
+<form action="/arama" class="form-inline my-2 my-lg-0">
+      <input name="kitap" class="form-control mr-sm-2" type="search" placeholder="Kitap ismi giriniz" aria-label="Search">
+      <button class="btn btn-dark my-2 my-sm-0" type="submit">Arama</button>
+</form>
+---> /arama sayfasına input'un içerisindeki veri yani kullanıcın yazmış olduğu kelime gönderiliyor. 
+	kitap = "Sefiller";
+***************************************************************************************
+    ARAMA BÖLÜMÜ ÖRNEĞİ..
+    var sql = "SELECT * from kitaplar WHERE kitapismi LIKE '%" + kelime + "%'";
+    connection.query(sql,  function(err, results, fields){
+      res.render("arama" , { kitaplar : results });
+    });
+***************************************************************************************    
+// kategori_linki'i  cocuk olan kategoriye sahip olan tüm kitapları göster.
+--> öncelikle kategori_link'i cocuk olan kategorinin kategori_ismi nedir ?
+	kategori_link : cocuk
+	kategori_ismi : Çocuk
+--> kitaplar tablosunda kategori değeri Çocuk olan tüm kitapları alacaz.

@@ -1,0 +1,22 @@
+1 Ocak 2021 - Cuma
+------------------
+express		    -> sunucu çatısı.
+body-parser	    -> post ile gelen verileri parçalıyoruz.
+ejs				-> html ve javascripti bir arada çalıştırabiliyoruz.
+npm install express
+node index.js   	-> bir kere çalıştırır.
+nodemon index.js    -> dosyada her değişiklik olduktan sonra tekrar çalıştırır.
+***** ejs dosyalarını default olarak "views" klasöründe tutuyoruz.
+app.use(express.static(__dirname + "/dosyalar"));  : applikasyona verilerimizin bulunacağı klasörü belirttik. Bu klasörün içerisinde "css, resimler, javaScript vs." olacak. Bunlara artık istediğimiz yerden erişim iznimiz olacak.
+app.get("/kitap/:degisken"   -> kitaplarımızın linkleri bizim belirlediğimiz şekilde olsun ve dinamik olarak değişebilsin.
+    var kitapIsmi = req.params.degisken;
+	http://kitapyurdu.com/kitap/sefiller
+	http://kitapyurdu.com/kitap/suc-ve-ceza
+	http://kitapyurdu.com/kitap/ana
+	http://kitapyurdu.com/kitap/kanser
+	app.get("/kitap/:degisken", function(req, res){
+	});
+// resimLinki : "/resimler/sefiller.jpg"
+// yayınevi   :  "Papatya"
+// aciklama   :  "240 kelimelik açıklama"
+özellikleri her bir kitap için eklenecek ve kitap.ejs dosyasında bu veriler ekrana yazdırılacak.
